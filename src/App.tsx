@@ -22,7 +22,7 @@ export default App
 const Container = styled.div `
   border: 1px solid #c7c7cf;
   max-width: 1280px;
-  margin: 30px;
+  margin: 30px auto;
   padding: 30px;
   border-radius: 10px;
 `
