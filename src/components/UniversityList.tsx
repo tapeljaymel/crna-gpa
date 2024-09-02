@@ -1,29 +1,29 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-type universityRecord = {
-    name: string;
-    totalQualityPoints: number;
-    gpaHours: number;
-    universityGpa: number;
-}
+// type universityRecord = {
+//     name: string;
+//     totalQualityPoints: number;
+//     gpaHours: number;
+//     universityGpa: number;
+// }
 
 const UniversityList = () => {
-    // const [universityData, setUniversityData] = useState([
-    //     { name: "University 1", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
-    //     { name: "University 2", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
-    //     { name: "University 4", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-    //     { name: "University 5", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-    //     { name: "University 6", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
-    //     { name: "University 7", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
-    //     { name: "University 8", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-    //     { name: "University 9", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-    //     { name: "University 10", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
-    //     { name: "University 11", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
-    //     { name: "University 12", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 }
-    // ]);
+    const [universityData, setUniversityData] = useState([
+        { name: "University 1", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
+        { name: "University 2", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
+        { name: "University 4", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+        { name: "University 5", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+        { name: "University 6", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
+        { name: "University 7", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
+        { name: "University 8", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+        { name: "University 9", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+        { name: "University 10", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
+        { name: "University 11", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
+        { name: "University 12", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 }
+    ]);
 
-    const [universityData, setUniversityData] = useState<universityRecord[]>([]);
+    // const [universityData, setUniversityData] = useState<universityRecord[]>([]);
 
     const [newUniversity, setNewUniversity] = useState({ name: "", totalQualityPoints: "", gpaHours: "", universityGpa: "" });
 
@@ -73,10 +73,26 @@ const UniversityList = () => {
     // The GPA for these courses would be 3.71.
 
     const cumulativeGPA = () => {
-        const totalPoints = universityData.reduce((acc, uni) => acc + uni.totalQualityPoints, 0);
-        const totalHours = universityData.reduce((acc, uni) => acc + uni.gpaHours, 0);
-        return totalHours ? (totalPoints / totalHours).toFixed(2) : "0.00";
+        let totalQualityPoints = 0;
+        let totalGpaHours = 0;
+    
+        // Loop through each university and calculate total quality points and total GPA hours
+        for (let i = 0; i < universityData.length; i++) {
+            const university = universityData[i];
+            const qualityPoints = university.universityGpa * university.gpaHours;
+            totalQualityPoints += qualityPoints;
+            totalGpaHours += university.gpaHours;
+        }
+    
+        if (totalGpaHours === 0) {
+            return "0.00"; // Prevent division by zero
+        }
+        
+        const cumulativeGpa = totalQualityPoints / totalGpaHours;
+        
+        return cumulativeGpa.toFixed(2);
     };
+    
 
     return (
         <>
