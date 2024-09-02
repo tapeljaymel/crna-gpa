@@ -1,29 +1,29 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-// type universityRecord = {
-//     name: string;
-//     totalQualityPoints: number;
-//     gpaHours: number;
-//     universityGpa: number;
-// }
+type universityRecord = {
+    name: string;
+    totalQualityPoints: number;
+    gpaHours: number;
+    universityGpa: number;
+}
 
 const UniversityList = () => {
-    const [universityData, setUniversityData] = useState([
-        { name: "University 1", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
-        { name: "University 2", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
-        { name: "University 4", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-        { name: "University 5", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-        { name: "University 6", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
-        { name: "University 7", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
-        { name: "University 8", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-        { name: "University 9", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
-        { name: "University 10", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
-        { name: "University 11", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
-        { name: "University 12", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 }
-    ]);
+    // const [universityData, setUniversityData] = useState([
+    //     { name: "University 1", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
+    //     { name: "University 2", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
+    //     { name: "University 4", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+    //     { name: "University 5", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+    //     { name: "University 6", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
+    //     { name: "University 7", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
+    //     { name: "University 8", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+    //     { name: "University 9", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 },
+    //     { name: "University 10", totalQualityPoints: 255, gpaHours: 89, universityGpa: 2.87 },
+    //     { name: "University 11", totalQualityPoints: 54, gpaHours: 15, universityGpa: 3.6 },
+    //     { name: "University 12", totalQualityPoints: 345, gpaHours: 90, universityGpa: 3.83 }
+    // ]);
 
-    // const [universityData, setUniversityData] = useState<universityRecord[]>([]);
+    const [universityData, setUniversityData] = useState<universityRecord[]>([]);
 
     const [newUniversity, setNewUniversity] = useState({ name: "", totalQualityPoints: "", gpaHours: "", universityGpa: "" });
 
