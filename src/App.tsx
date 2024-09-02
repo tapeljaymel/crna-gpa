@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import './App.css'
 import ProfileForm from './components/ProfileForm'
+import UniversityList from './components/UniversityList'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Heading>GPA Calculator</Heading>
         <ProfileForm />
       </Container>
+      <UniversityList />
     </>
   )
 }
